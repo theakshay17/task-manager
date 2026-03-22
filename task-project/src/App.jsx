@@ -1,4 +1,4 @@
-import TasksPage from "./assets/pages/TasksPage";
+import TasksPage from "./pages/TasksPage";
 
 function App(){
   return(
