@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1E1E2F, #3A3A5A);
+  color: #fff;
+}
+
+.header{
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header p{
+  padding-left: 5px;
+  font-size: smaller;
+  color: #9CA3AF;
+}
+
+.tasksList{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 73vh;
+  flex: 1;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE & Edge */
+  -ms-overflow-style: none;
+}
+
+.tasksList::-webkit-scrollbar {
+  display: none;
+}
+
+.list{
+  margin-top: 50px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: 0px 20px;
+  cursor: pointer;
+}
+
+.list:hover{
+  transform: scale(1.01);
+  transition: 0.3s all ease-in-out;
+}
+
+.tasksList h2 {
+  color: #F9FAFB;
+}
+
+.tasksList p {
+  color: #9CA3AF;
+}
+
+.actions{
+  display: flex;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.completeBtn{
+  background: #22C55E;;
+  padding: 5px;
+  color: #ffff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.editBtn{
+  background: #3B82F6;
+  padding: 5px;
+  color: #ffff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  width: 70px;
+}
+
+.deleteBtn{
+  background: #EF4444;
+  padding: 5px;
+  color: #ffff;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  width: 70px;
+}
+.createArea {
+  display: flex;
+  gap: 10px;
+  margin: 15px;
+}
+
+/* Input should take remaining space */
+.createArea input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  outline: none;
+  font-size: larger;
+
+  /* 🌫️ Glass effect core */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* ✨ Border */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  /* 💡 Text */
+  color: #F9FAFB;
+
+  /* 🌟 Soft glow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.createArea input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.createArea input:focus {
+  border: 1px solid rgba(165, 180, 252, 0.6);
+  box-shadow: 0 0 10px rgba(165, 180, 252, 0.4);
+}
+
+/* Button should have fixed size */
+.createArea button {
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: larger;
+  background: rgba(118, 75, 162, 0.3);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.createArea button:hover {
+  background: rgba(118, 75, 162, 0.5);
+}
+
+.completed h2,
+.completed p {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+
+.message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+/* 🌌 Full screen overlay */
+.updateWindowContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+}
+
+/* 🪟 Modal box */
+.windowOverlay {
+  width: 320px;
+  padding: 20px;
+  border-radius: 16px;
+
+  /* 🌫️ Glass effect */
+  background: rgba(42, 42, 64, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 📝 Heading */
+.updateWindowContainer h1 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #F9FAFB;
+}
+
+/* 🧾 Inputs */
+.windowOverlay input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #F9FAFB;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ✨ Placeholder */
+.windowOverlay input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* 🎯 Focus effect */
+.windowOverlay input:focus {
+  border: 1px solid rgba(165, 180, 252, 0.6);
+  box-shadow: 0 0 8px rgba(165, 180, 252, 0.4);
+}
+
+/* 🔘 Buttons */
+.windowOverlay button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s ease;
+}
+
+/* ✅ Update button */
+.windowOverlay button:first-of-type {
+  background: #3B82F6;
+}
+
+.windowOverlay button:first-of-type:hover {
+  background: #2563EB;
+}
+
+/* ❌ Cancel button */
+.windowOverlay button:last-of-type {
+  background: #EF4444;
+}
+
+.windowOverlay button:last-of-type:hover {
+  background: #DC2626;
+}
+
+/* Base button */
+.completeBtn {
+  width: 130px;              /* 🔒 fixed width */
+  padding: 8px 0;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+/* 🟢 Mark as Done */
+.completeBtn.done {
+  background: #22C55E;
+}
+
+.completeBtn.done:hover {
+  background: #16A34A;
+}
+
+/* 🟠 Undo */
+.completeBtn.undo {
+  background: #F59E0B;
+}
+
+.completeBtn.undo:hover {
+  background: #D97706;
+}

@@ -1,0 +1,13 @@
+# 🔹 Frontend (React)
+frontend/node_modules/
+frontend/dist/
+
+# 🔹 Backend (Spring Boot)
+backend/target/
+
+# 🔹 Environment files
+.env
+
+# 🔹 System files
+.DS_Store
+Thumbs.db
